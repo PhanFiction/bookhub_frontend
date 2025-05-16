@@ -1,4 +1,5 @@
 import React from 'react'
+import GoogleAuth from '../components/auth/GoogleAuth'
 
 export default function  Signup() {
   return (
@@ -20,6 +21,7 @@ export default function  Signup() {
         <div>
           <p>Already have an account? <a href="/login">Login</a></p>
           <p>Or sign up with:</p>
+          <GoogleAuth />
           <button type="button" onClick={() => console.log('Google sign up')}>Google</button>
         </div>
       </form>
