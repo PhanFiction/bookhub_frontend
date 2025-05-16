@@ -1,3 +1,4 @@
+import GoogleAuth from "../components/auth/GoogleAuth";
 
 
 export default function Login() {
@@ -18,7 +19,7 @@ export default function Login() {
         </div>
         <div>
           <p>Or login with:</p>
-          <button type="button" onClick={() => console.log('Google login')}>Google</button>
+          <GoogleAuth />
         </div>
       </form>
     </div>
