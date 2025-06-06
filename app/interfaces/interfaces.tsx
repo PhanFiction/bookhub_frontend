@@ -8,3 +8,7 @@ export interface BookInfoProps {
 export interface ChildrenProps {
   children: React.ReactNode
 }
+
+export interface HamburgerProps {
+  handleToggle: () => void;
+}
