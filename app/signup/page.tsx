@@ -22,7 +22,6 @@ export default function  Signup() {
           <p>Already have an account? <a href="/login">Login</a></p>
           <p>Or sign up with:</p>
           <GoogleAuth />
-          <button type="button" onClick={() => console.log('Google sign up')}>Google</button>
         </div>
       </form>
     </div>
