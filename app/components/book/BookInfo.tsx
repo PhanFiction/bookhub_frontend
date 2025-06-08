@@ -33,5 +33,5 @@ export default function BookInfo({ img, title, author, pages }: BookInfoProps) {
         </button>
       </div>
     </>
-  );
+  )
 }
