@@ -1,4 +1,5 @@
 'use client';
+
 import Link from 'next/link';
 import Hamburger from '../hamburger';
 import { useState } from 'react';
@@ -6,13 +7,11 @@ import { useState } from 'react';
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => {
-    console.log(isOpen);
-    setIsOpen(!isOpen);
-  };
+  const handleToggle = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="flex w-full bg-gray-500 p-4">
+    <nav className="flex w-full items-center bg-gray-500 p-4">
+      <h1 className="text-3xl">BookHub</h1>
       {/* Hamburger Menu */}
       <div className="ml-auto">
         <Hamburger handleToggle={handleToggle} />
