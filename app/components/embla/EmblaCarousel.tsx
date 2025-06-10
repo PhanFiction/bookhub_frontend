@@ -1,7 +1,7 @@
 'use client'
 import { EmblaOptionsType } from 'embla-carousel';
 import { DotButton, useDotButton } from './EmblaCarouselDotButton';
-import useEmblaCarousel from 'embla-carousel-react'
+import useEmblaCarousel from 'embla-carousel-react';
 
 type PropType = {
   slides: number[]
