@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { BookInfoProps } from "@/app/interfaces/interfaces";
+import BookInfoProps from "../../interfaces/interfaces";
 
-export default function BookInfo({ img, title, author, pages }: BookInfoProps) {
+export default function BookInfo({ coverImage, title, author, pages }: BookInfoProps) {
   return (
     <>
       <div className="relative mx-4 mt-4 h-48 overflow-hidden rounded-xl">
         <Image
-          src={img}
+          src={coverImage}
           alt="img"
           width="100"
           height="100"
@@ -16,7 +16,7 @@ export default function BookInfo({ img, title, author, pages }: BookInfoProps) {
 
       {/* Middle section grows to fill vertical space */}
       <div className="flex flex-col flex-grow p-6">
-        <div className="mb-2 flex flex-col gap-1">
+        <div className="my-auto flex flex-col gap-1">
           <p className="text-lg font-bold">{title}</p>
           <p className="font-medium">{author}</p>
         </div>
@@ -25,10 +25,10 @@ export default function BookInfo({ img, title, author, pages }: BookInfoProps) {
 
       {/* Buttons stay at the bottom */}
       <div className="mt-auto flex gap-2 p-6 pt-0">
-        <button className="w-full rounded-lg bg-blue-gray-900/10 py-3 px-6 text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105">
+        <button className="w-full rounded-lg bg-blue-gray-900/10 py-3 px-6 text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 hover:cursor-pointer">
           Read
         </button>
-        <button className="w-full rounded-lg bg-blue-gray-900/10 py-3 px-6 text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105">
+        <button className="w-full rounded-lg bg-blue-gray-900/10 py-3 px-6 text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 hover:cursor-pointer">
           Remove
         </button>
       </div>
