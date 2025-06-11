@@ -1,7 +1,7 @@
 import BookCard from "../components/book/BookCard";
 import BookInfo from "../components/book/BookInfo";
 import { fakeBookData } from "../utils/fakeData";
-import { BookDataProps } from "../interfaces/interfaces";
+import BookInfoProps from "../interfaces/interfaces";
 
 export default function page() {
   return (
@@ -10,9 +10,15 @@ export default function page() {
 
       <div className="flex flex-wrap gap-4">
         {
-          fakeBookData.map((book: BookDataProps) => (
-            <BookCard key={book.ID}>
-              <BookInfo img={book.CoverImage} title={book.Title} author={book.Author} pages={book.Pages} />
+          fakeBookData.map((book: BookInfoProps) => (
+            <BookCard key={book.id}>
+              <BookInfo
+                id={book.id}
+                coverImage={book.coverImage}
+                title={book.title}
+                author={book.author}
+                pages={book.pages}
+              />
             </BookCard>
           ))
         }
