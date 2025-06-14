@@ -3,7 +3,6 @@ import { useState } from "react";
 import BookCard from "../components/book/BookCard";
 import BookInfo from "../components/book/BookInfo";
 import { fakeBookData } from "../utils/fakeData";
-import BookInfoProps from "../interfaces/interfaces";
 import Button from "../components/button";
 import BookForm from "../components/bookform";
 
@@ -64,17 +63,17 @@ export default function BookPage() {
 
       <div className="flex flex-wrap gap-4">
         {
-          fakeBookData.map((book: BookInfoProps) => (
-            <BookCard key={book.id}>
-              <BookInfo
-                id={book.id}
-                coverImage={book.coverImage}
-                title={book.title}
-                author={book.author}
-                pages={book.pages}
-              />
-            </BookCard>
-          ))
+          fakeBookData.map((book) => (
+              <BookCard key={book.id as number}>
+                <BookInfo
+                  id={book.id as number}
+                  coverImage={book.coverImage ?? ""}
+                  title={book.title ?? "Unknown Title"}
+                  author={book.author ?? "Unknown Author"}
+                  pages={book.pages ?? 0}
+                />
+              </BookCard>
+            ))
         }
       </div>
     </div>
