@@ -21,7 +21,7 @@ export interface BookDataProps {
   title?: string;
   author?: string;
   pages?: number;
-  Ppublisher?: string;
+  publisher?: string;
   isbn?: string;
   description?: string;
   publishedAt?: string;
