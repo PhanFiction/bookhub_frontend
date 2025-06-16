@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../button";
 
 interface BookFormProps {
   formData: {
@@ -15,14 +16,22 @@ interface BookFormProps {
 
   handleFormChange: (event: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => void;
 
-  handleSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void | Promise<void>;
+
+  handleClose?: () => void; // Optional close handler
 }
 
-export default function BookForm({ formData, handleFormChange, handleSubmit }: BookFormProps) {
+export default function BookForm({ formData, handleFormChange, handleSubmit, handleClose }: BookFormProps) {
   return (
-    <div className="flex justify-center items-center min-h-screen p-4">
-      <form action="/books/new" method="POST" className="w-full max-w-lg bg-amber-950 p-8 rounded-lg shadow-md space-y-4">
-        <h2 className="text-2xl font-semibold mb-4 text-center">Add New Book</h2>
+    <div className="flex justify-center items-center h-screen p-4 scroll-auto z-4">
+      <form 
+        action="/books/new" 
+        method="POST" 
+        className="z-1 w-full max-w-lg bg-amber-950 p-8 rounded-lg shadow-md space-y-4"
+        onSubmit={handleSubmit}
+      >
+        <Button onClick={handleClose ?? (() => {})}>X</Button>
+        <h2 className="text-2xl font-semibold mb-¸¸¸¸4 text-center">Add New Book</h2>
 
         <div className="flex flex-col">
           <label htmlFor="title" className="mb-1">Title:</label>
@@ -69,7 +78,10 @@ export default function BookForm({ formData, handleFormChange, handleSubmit }: B
           <textarea id="description" name="description" rows={4} className="border rounded p-2" value={formData.description} onChange={handleFormChange}></textarea>
         </div>
 
-        <button type="submit" className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded" onClick={handleSubmit}>
+        <button 
+          type="submit" 
+          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded" 
+        >
           Add Book
         </button>
       </form>
