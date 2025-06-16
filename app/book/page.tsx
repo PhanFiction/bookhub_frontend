@@ -22,6 +22,10 @@ export default function BookPage() {
 
   const handleAddNewBookClick = () => setShowForm(!showForm);
 
+  const handleCloseForm = () => {
+    setShowForm(false);
+  }
+
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
@@ -51,14 +55,15 @@ export default function BookPage() {
   return (
     <div>
       <h1>Book Page</h1>
+      <Button onClick={() => handleAddNewBookClick()}>
+        {showForm ? "Hide Form" : "Add New Book"}
+        {/* Toggle text based on form visibility */}
+      </Button>
 
+      {showForm && <div className="fixed inset-0 bg-black opacity-50 z-2"></div>}       
       {/* Create button to toggle form */}
-      <div className="mb-4">
-        <Button onClick={() => handleAddNewBookClick()}>
-          {showForm ? "Hide Form" : "Add New Book"}
-          {/* Toggle text based on form visibility */}
-        </Button>
-        {showForm && <BookForm formData={formData} handleFormChange={handleFormChange} handleSubmit={submitBookForm}/>}
+      <div className="-bottom-48 w-100 z-4 absolute">
+        {showForm && <BookForm formData={formData} handleFormChange={handleFormChange} handleSubmit={submitBookForm} handleClose={handleCloseForm}/>}
       </div>
 
       <div className="flex flex-wrap gap-4">
