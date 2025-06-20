@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookCard from "../components/book/BookCard";
 import BookInfo from "../components/book/BookInfo";
 import { fakeBookData } from "../utils/fakeData";
@@ -8,7 +8,8 @@ import BookForm from "../components/bookform";
 
 export default function BookPage() {
   const [showForm, setShowForm] = useState(false);
-    const [formData, setFormData] = useState({
+  const [books, setBooks] = useState<any[]>([]);
+  const [formData, setFormData] = useState({
     title: '',
     author: '',
     pages: 0,
@@ -20,12 +21,25 @@ export default function BookPage() {
     description: ''
   });
 
+  useEffect(() => {
+    const fetchBooks = async () => {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/books`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // only include if your Go backend uses cookies
+      });
+      const data = await res.json();
+      setBooks(data);
+    };
+    fetchBooks();
+  }, []);
+
   const handleAddNewBookClick = () => setShowForm(!showForm);
 
-  const handleCloseForm = () => {
-    setShowForm(false);
-  }
-
+  const handleCloseForm = () => setShowForm(false);
+  
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
@@ -68,14 +82,14 @@ export default function BookPage() {
 
       <div className="flex flex-wrap gap-4">
         {
-          fakeBookData.map((book) => (
-              <BookCard key={book.id as number}>
+          books.map((book) => (
+              <BookCard key={book.ID as number}>
                 <BookInfo
-                  id={book.id as number}
-                  coverImage={book.coverImage ?? ""}
-                  title={book.title ?? "Unknown Title"}
-                  author={book.author ?? "Unknown Author"}
-                  pages={book.pages ?? 0}
+                  id={book.ID as number}
+                  coverImage={book.CoverImg ?? ""}
+                  title={book.Title ?? "Unknown Title"}
+                  author={book.Author ?? "Unknown Author"}
+                  pages={book.Pages ?? 0}
                 />
               </BookCard>
             ))
