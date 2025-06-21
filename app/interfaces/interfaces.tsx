@@ -7,11 +7,11 @@ export interface HamburgerProps {
 }
 
 export default interface BookInfoProps {
-  id: number;
-  coverImage: string;
-  title: string;
-  author: string;
-  pages: number;
+  id?: number;
+  coverImage?: string;
+  title?: string;
+  author?: string;
+  pages?: number;
 }
 
 // BookDataProps interface represents the structure of book data
