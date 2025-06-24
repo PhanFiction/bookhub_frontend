@@ -20,7 +20,6 @@ export default function Nav() {
         isOpen && (
         <ul className="absolute top-15 right-6 flex flex-col gap-4 bg-black p-4 rounded-md z-1">
           <li><Link href={'/'}>Home</Link></li>
-          <li><Link href={'/book'}>Book Page</Link></li>
           <li><Link href={'/signup'}>Signup</Link></li>
           <li><Link href={'/login'}>Login</Link></li>
           <li><Link href={'/logout'}>Logout</Link></li>
