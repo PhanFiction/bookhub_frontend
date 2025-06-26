@@ -11,7 +11,9 @@ export default function Nav() {
 
   return (
     <nav className="flex w-full items-center bg-gray-500 p-4">
-      <h1 className="text-3xl">BookHub</h1>
+      <Link href="/">
+        <h1 className="text-3xl">BookHub</h1>
+      </Link>
       {/* Hamburger Menu */}
       <div className="ml-auto">
         <Hamburger handleToggle={handleToggle} />
