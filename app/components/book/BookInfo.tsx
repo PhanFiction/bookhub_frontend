@@ -26,11 +26,11 @@ export default function BookInfo({ coverImage, title, author, pages, id }: BookI
 
       {/* Buttons stay at the bottom */}
       <div className="mt-auto flex gap-2 p-6 pt-0">
-        <button className="w-full rounded-lg bg-blue-gray-900/10 py-3 px-6 text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 hover:cursor-pointer">
-          <Link href={`/book/${id}`}>
+        <Link href={`/book/${id}`}>
+          <button className="w-full rounded-lg bg-blue-gray-900/10 py-3 px-6 text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 hover:cursor-pointer">
             View
-          </Link>
-        </button>
+          </button>
+        </Link>
         <button className="w-full rounded-lg bg-blue-gray-900/10 py-3 px-6 text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 hover:cursor-pointer">
           Save
         </button>
