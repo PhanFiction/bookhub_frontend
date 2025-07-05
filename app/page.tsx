@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import BookCard from './components/book/BookCard';
 import BookInfo from './components/book/BookInfo';
 import Button from './components/button';
-import BookForm from './components/bookform';
+import BookForm from './components/book/BookForm';
 
 type Book = {
   ID: number;
@@ -75,7 +75,6 @@ export default function Page() {
 
   return (
     <div>
-      <h1>Book Page</h1>
       <Button onClick={() => handleAddNewBookClick()}>
         {showForm ? "Hide Form" : "Add New Book"}
         {/* Toggle text based on form visibility */}
